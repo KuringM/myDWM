@@ -1,6 +1,0 @@
-#!/bin/bash
-cpu () {
-	echo CPU: `top -b -n1 | grep "Cpu(s)" | awk '{print int($2)}'`%
-}
-
-cpu

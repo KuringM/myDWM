@@ -1,0 +1,7 @@
+#! /bin/bash 
+kernel () (
+	kern="$(uname -r)"
+	echo -e "$kern"
+)
+
+kernel

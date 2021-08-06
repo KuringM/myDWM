@@ -40,7 +40,8 @@ static const unsigned int alphas[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+//static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "\uf46d", "\uf120", "\ufa9e", "\uf04b", "\uf11b", "\uf8d7", "\ufc58", "\uf42f", "\ufcf4" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -53,7 +54,7 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.5; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
@@ -80,6 +81,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
+#include <X11/XF86keysym.h>
 #define MODKEY Mod4Mask
 #define AltMask Mod1Mask
 #define TAGKEYS(KEY,TAG) \
@@ -93,11 +95,24 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
+/* start application */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[]  = { "google-chrome-stable", NULL };
-static const char *layoutmenu_cmd = "/home/kuring/Test/mydwm/scripts/layoutmenu.sh";
+static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
+
+/* scripts control */
+static const char *layoutmenu_cmd = "/home/kuring/scripts/layoutmenu.sh";
+static const char *upvol[]   = { "/home/kuring/scripts/vol-up.sh",  NULL };
+static const char *downvol[] = { "/home/kuring/scripts/vol-down.sh",  NULL };
+static const char *mutevol[] = { "/home/kuring/scripts/vol-toggle.sh",  NULL };
+static const char *wpcmd[]  = { "/home/kuring/scripts/wp-change.sh", NULL };
+static const char *sktogglecmd[]  = { "/home/kuring/scripts/sck-tog.sh", NULL };
+static const char *setcolemakcmd[]  = { "/home/kuring/scripts/setxmodmap-colemak.sh", NULL };
+static const char *setqwertycmd[]  = { "/home/kuring/scripts/setxmodmap-qwerty.sh", NULL };
+static const char *suspendcmd[]  = { "/home/kuring/scripts/suspend.sh", NULL };
+static const char *touchpadcmd[]  = { "/home/kuring/scripts/on-down-touchpad.sh", NULL };
 
 #include "movestack.c"
 static Key keys[] = {
@@ -135,6 +150,20 @@ static Key keys[] = {
 	{ MODKEY,                       XK_s,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_c,      spawn,          {.v = browsercmd } },
+	{ 0,              XF86XK_AudioLowerVolume, spawn,          {.v = downvol } },
+	{ 0,              XF86XK_AudioMute,        spawn,          {.v = mutevol } },
+	{ 0,              XF86XK_AudioRaiseVolume, spawn,          {.v = upvol   } },
+	{ MODKEY,         XK_bracketleft,          spawn,          {.v = downvol } },
+	{ MODKEY,         XK_backslash,            spawn,          {.v = mutevol } },
+	{ MODKEY,         XK_bracketright,         spawn,          {.v = upvol   } },
+	{ MODKEY,                       XK_b,      spawn,          {.v = wpcmd } },
+	{ MODKEY|ControlMask,           XK_s,      spawn,          {.v = sktogglecmd } },
+	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = setqwertycmd } },
+	{ MODKEY|ShiftMask,             XK_m,      spawn,          {.v = setcolemakcmd } },
+	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = suspendcmd } },
+	{ MODKEY,                       XK_p,      spawn,          {.v = touchpadcmd } },
+
+
 	/* change layouts */
 	{ AltMask|ControlMask,          XK_t,      setlayout,      {.v = &layouts[0]} },   /* "[]="  tile */
 	{ AltMask|ControlMask,          XK_m,      setlayout,      {.v = &layouts[1]} },   /* "[M]"  monocle */

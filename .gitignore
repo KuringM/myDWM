@@ -1,4 +1,4 @@
 dwm
 *.o
-.ccls-cache/
 *.reg
+*.orig

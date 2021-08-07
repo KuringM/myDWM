@@ -164,10 +164,15 @@ static Key keys[] = {
 
 	{ MODKEY,                       XK_e,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_u,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_n,   viewtoleft,     {0} },
-	{ MODKEY,                       XK_i,  viewtoright,    {0} },
-	{ MODKEY|ShiftMask,             XK_n,   tagtoleft,      {0} },
-	{ MODKEY|ShiftMask,             XK_i,  tagtoright,     {0} },
+	{ MODKEY,                       XK_n,      viewtoleft,     {0} },
+	{ MODKEY,                       XK_i,      viewtoright,    {0} },
+	{ MODKEY|ShiftMask,             XK_n,      tagtoleft,      {0} },
+	{ MODKEY|ShiftMask,             XK_i,      tagtoright,     {0} },
+
+	{ MODKEY,                       XK_k,      hidewin,        {0} },
+	{ MODKEY|ShiftMask,             XK_k,      restorewin,     {0} },
+	{ MODKEY,                       XK_o,      hideotherwins,  {0}},
+	{ MODKEY|ShiftMask,             XK_o,      restoreotherwins, {0}},
 
 	{ MODKEY,              XK_apostrophe,      togglescratch,  {.ui = 0 } },
 	{ MODKEY,                       XK_r,      togglescratch,  {.ui = 1 } },

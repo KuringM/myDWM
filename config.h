@@ -146,8 +146,6 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	
-	{ MODKEY,                       XK_e,      focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_u,      focusstack,     {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
 	{ MODKEY|ControlMask,           XK_q,      quit,           {0} },
 	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
@@ -163,6 +161,13 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+
+	{ MODKEY,                       XK_e,      focusstack,     {.i = +1 } },
+	{ MODKEY,                       XK_u,      focusstack,     {.i = -1 } },
+	{ MODKEY,                       XK_n,   viewtoleft,     {0} },
+	{ MODKEY,                       XK_i,  viewtoright,    {0} },
+	{ MODKEY|ShiftMask,             XK_n,   tagtoleft,      {0} },
+	{ MODKEY|ShiftMask,             XK_i,  tagtoright,     {0} },
 
 	{ MODKEY,              XK_apostrophe,      togglescratch,  {.ui = 0 } },
 	{ MODKEY,                       XK_r,      togglescratch,  {.ui = 1 } },

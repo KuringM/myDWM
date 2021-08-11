@@ -944,7 +944,7 @@ drawbar(Monitor *m)
 			}
 		} else {
 			drw_setscheme(drw, scheme[SchemeNorm]);
-			drw_rect(drw, x, 0, w - 2 * sw, bh, 1, 1);
+	  	drw_rect(drw, x, 0, w , bh, 1, 1);
 		}
 	}
 

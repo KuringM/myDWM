@@ -135,6 +135,7 @@ static const char *setcolemakcmd[]  = { "/home/kuring/scripts/setxmodmap-colemak
 static const char *setqwertycmd[]  = { "/home/kuring/scripts/setxmodmap-qwerty.sh", NULL };
 static const char *suspendcmd[]  = { "/home/kuring/scripts/suspend.sh", NULL };
 static const char *touchpadcmd[]  = { "/home/kuring/scripts/on-down-touchpad.sh", NULL };
+static const char *slcokcmd[]  = { "/home/kuring/scripts/slock.sh", NULL };
 
 #include "movestack.c"
 static Key keys[] = {
@@ -200,6 +201,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_m,      spawn,          {.v = setcolemakcmd } },
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = suspendcmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = touchpadcmd } },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = slcokcmd } },
 
 
 	/* change layouts */

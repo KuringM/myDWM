@@ -29,14 +29,16 @@ static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+//static const char col_cyan[]        = "#005577";
+static const char col_cyan[]        = "#37474F";
+static const char col_border[]      = "#42A5F5";
 static const unsigned int baralpha  = 0xd0;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
-	[SchemeHid]  = { col_cyan,  col_gray1, col_cyan  },
+	[SchemeSel]  = { col_gray4, col_cyan,  col_border  },
+	[SchemeHid]  = { col_cyan,  col_gray1, col_border  },
 };
 
 static const unsigned int alphas[][3]      = {
@@ -61,7 +63,8 @@ static Sp scratchpads[] = {
 
 /* tagging */
 //static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-static const char *tags[] = { "\uf46d", "\uf120", "\ufa9e", "\uf04b", "\uf11b", "\uf8d7", "\ufc58", "\uf42f", "\ufcf4" };
+//static const char *tags[] = { "\uf46d", "\uf120", "\ufa9e", "\uf04b", "\uf11b", "\uf8d7", "\ufc58", "\uf42f", "\ufcf4" };
+static const char *tags[] = { "🏡", "💻", "🌐", "📺", "🎮", "🎧", "🛸", "📧","🎯" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -115,7 +118,7 @@ static const Layout layouts[] = {
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
-#define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
+#define SHCMD(cmd) { .v = (const char*[]){ "/bin/bash", "-c", cmd, NULL } }
 
 /* commands */
 /* start application */
@@ -249,7 +252,11 @@ static Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button3,        layoutmenu,     {0} }, /* layoutmenu */
 	{ ClkWinTitle,          0,              Button1,        togglewin,      {0} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
+	{ ClkStatusText,        0,              Button1,        spawn,          SHCMD("sb-notify -a") },
+	{ ClkStatusText,        0,              Button2,        spawn,          SHCMD("sb-notify -c") },
+	{ ClkStatusText,        0,              Button3,        spawn,          SHCMD("sb-notify -b") },
+	{ ClkStatusText,        0,              Button4,        spawn,          {.v = termcmd } },
+	{ ClkStatusText,        0,              Button5,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },

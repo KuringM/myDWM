@@ -16,7 +16,7 @@ static const unsigned int gappiv    = 10;       /* vert inner gap between window
 static const unsigned int gappoh    = 10;       /* horiz outer gap between windows and screen edge */
 static const unsigned int gappov    = 10;       /* vert outer gap between windows and screen edge */
 static       int smartgaps          = 1;        /* 1 means no outer gap when there is only one window */
-static const int showbar            = 0;        /* 0 means no bar */
+static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const Bool viewontag         = True;     /* Switch view on tag switch */
 static const char *fonts[]          = {
@@ -126,17 +126,7 @@ static const char *browsercmd[]  = { "google-chrome-stable", NULL };
 static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
 
 /* scripts control */
-static const char *layoutmenu_cmd = "/home/kuring/scripts/layoutmenu.sh";
-static const char *upvol[]   = { "/home/kuring/scripts/vol-up.sh",  NULL };
-static const char *downvol[] = { "/home/kuring/scripts/vol-down.sh",  NULL };
-static const char *mutevol[] = { "/home/kuring/scripts/vol-toggle.sh",  NULL };
-static const char *wpcmd[]  = { "/home/kuring/scripts/wp-change.sh", NULL };
-static const char *sktogglecmd[]  = { "/home/kuring/scripts/sck-tog.sh", NULL };
-static const char *setcolemakcmd[]  = { "/home/kuring/scripts/setxmodmap-colemak.sh", NULL };
-static const char *setqwertycmd[]  = { "/home/kuring/scripts/setxmodmap-qwerty.sh", NULL };
-static const char *suspendcmd[]  = { "/home/kuring/scripts/suspend.sh", NULL };
-static const char *touchpadcmd[]  = { "/home/kuring/scripts/on-down-touchpad.sh", NULL };
-static const char *slcokcmd[]  = { "/home/kuring/scripts/slock.sh", NULL };
+static const char *layoutmenu_cmd = "/home/kuring/.local/bin/dwm/dwm-layoutmenu.sh";
 
 #include "movestack.c"
 static Key keys[] = {
@@ -190,19 +180,19 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_c,      spawn,          {.v = browsercmd } },
 	{ 0,                            XK_Print,  spawn,          {.v = screenshotcmd } },
-	{ 0,              XF86XK_AudioLowerVolume, spawn,          {.v = downvol } },
-	{ 0,              XF86XK_AudioMute,        spawn,          {.v = mutevol } },
-	{ 0,              XF86XK_AudioRaiseVolume, spawn,          {.v = upvol   } },
-	{ MODKEY,         XK_bracketleft,          spawn,          {.v = downvol } },
-	{ MODKEY,         XK_backslash,            spawn,          {.v = mutevol } },
-	{ MODKEY,         XK_bracketright,         spawn,          {.v = upvol   } },
-	{ MODKEY,                       XK_b,      spawn,          {.v = wpcmd } },
-	{ MODKEY|ControlMask,           XK_s,      spawn,          {.v = sktogglecmd } },
-	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = setqwertycmd } },
-	{ MODKEY|ShiftMask,             XK_m,      spawn,          {.v = setcolemakcmd } },
-	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = suspendcmd } },
-	{ MODKEY,                       XK_p,      spawn,          {.v = touchpadcmd } },
-	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = slcokcmd } },
+	{ 0,              XF86XK_AudioLowerVolume, spawn,          SHCMD("dwm-vol_down.sh") },
+	{ 0,              XF86XK_AudioMute,        spawn,          SHCMD("dwm-vol_toggle.sh") },
+	{ 0,              XF86XK_AudioRaiseVolume, spawn,          SHCMD("dwm-vol_up.sh") },
+	{ MODKEY,         XK_bracketleft,          spawn,          SHCMD("dwm-vol_down.sh") },
+	{ MODKEY,         XK_backslash,            spawn,          SHCMD("dwm-vol_toggle.sh") },
+	{ MODKEY,         XK_bracketright,         spawn,          SHCMD("dwm-vol_up.sh") },
+	{ MODKEY,                       XK_b,      spawn,          SHCMD("dwm-wp_change.sh") },
+	{ MODKEY|ControlMask,           XK_s,      spawn,          SHCMD("dwm-tog_sck.sh") },
+	{ MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("setxmodmap-qwerty.sh") },
+	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("setxmodmap-colemak.sh") },
+	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("dwm-suspend.sh") },
+	{ MODKEY,                       XK_p,      spawn,          SHCMD("dwm-tog_touchpad.sh") },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("dwm-slock.sh") },
 	{ MODKEY,                       XK_grave,  spawn,          SHCMD("dmenuunicode") },
 
 

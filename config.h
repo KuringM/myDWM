@@ -29,8 +29,7 @@ static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-//static const char col_cyan[]        = "#005577";
-static const char col_cyan[]        = "#37474F";
+static const char col_cyan[]        = "#1f2f3f";
 static const char col_border[]      = "#42A5F5";
 static const unsigned int baralpha  = 0xd0;
 static const unsigned int borderalpha = OPAQUE;
@@ -53,12 +52,12 @@ typedef struct {
 } Sp;
 const char *spcmd1[] = {"st", "-n", "spterm", "-g", "80x24", NULL };
 const char *spcmd2[] = {"st", "-n", "spfm", "-g", "80x24", "-e", "ranger", NULL };
-const char *spcmd3[] = {"keepassxc", NULL };
+const char *spcmd3[] = {"st", "-n", "calcurse", "-g", "80x24", "-e", "calcurse", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
 	{"spranger",    spcmd2},
-	{"keepassxc",   spcmd3},
+	{"calcurse",    spcmd3},
 };
 
 /* tagging */
@@ -76,7 +75,7 @@ static const Rule rules[] = {
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 	{ NULL,      "spterm",    NULL,       SPTAG(0),     1,           -1 },
 	{ NULL,      "spfm",      NULL,       SPTAG(1),     1,           -1 },
-	{ NULL,      "keepassxc", NULL,       SPTAG(2),     0,           -1 },
+	{ NULL,      "calcurse",  NULL,       SPTAG(2),     1,           -1 },
 };
 
 /* layout(s) */
@@ -255,8 +254,6 @@ static Button buttons[] = {
 	{ ClkStatusText,        0,              Button1,        spawn,          SHCMD("sb-notify -a") },
 	{ ClkStatusText,        0,              Button2,        spawn,          SHCMD("sb-notify -c") },
 	{ ClkStatusText,        0,              Button3,        spawn,          SHCMD("sb-notify -b") },
-	{ ClkStatusText,        0,              Button4,        spawn,          {.v = termcmd } },
-	{ ClkStatusText,        0,              Button5,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },

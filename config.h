@@ -189,13 +189,16 @@ static Key keys[] = {
 	{ MODKEY,         XK_backslash,            spawn,          SHCMD("dwm-vol_toggle.sh") },
 	{ MODKEY,         XK_bracketright,         spawn,          SHCMD("dwm-vol_up.sh") },
 	{ MODKEY,                       XK_b,      spawn,          SHCMD("dwm-wp_change.sh") },
-	{ MODKEY|ControlMask,           XK_s,      spawn,          SHCMD("dwm-tog_sck.sh") },
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("setxmodmap-qwerty.sh") },
 	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("setxmodmap-colemak.sh") },
-	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("dwm-suspend.sh") },
+	{ MODKEY|ShiftMask,     XK_BackSpace,      spawn,          SHCMD("sysact") },
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("dwm-tog_touchpad.sh") },
-	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("dwm-slock.sh") },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("slock -m \"$(cowsay \"$(fortune)\" | lolcat -ft)\"") },
+	{ MODKEY|ControlMask,           XK_s,      spawn,          SHCMD("$(killall screenkey && notify-send Screenkey Off) || $(notify-send Screenkey On && screenkey)") },
 	{ MODKEY,                       XK_grave,  spawn,          SHCMD("dmenuunicode") },
+	{ ShiftMask,                    XK_Print,  spawn,          SHCMD("maimpick") },
+	{ MODKEY,                       XK_F9,     spawn,          SHCMD("dmenumount") },
+	{ MODKEY,                       XK_F10,    spawn,          SHCMD("dmenuumount") },
 
 
 	/* change layouts */

@@ -257,6 +257,8 @@ static Button buttons[] = {
 	{ ClkStatusText,        0,              Button1,        spawn,          SHCMD("sb-notify -a") },
 	{ ClkStatusText,        0,              Button2,        spawn,          SHCMD("sb-notify -c") },
 	{ ClkStatusText,        0,              Button3,        spawn,          SHCMD("sb-notify -b") },
+	{ ClkStatusText,        0,              Button4,        spawn,          SHCMD("dwm-vol_up.sh") },
+	{ ClkStatusText,        0,              Button5,        spawn,          SHCMD("dwm-vol_down.sh") },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },

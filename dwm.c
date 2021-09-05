@@ -1738,7 +1738,7 @@ run(void)
 void
 runAutostart(void) {
 	//system("cd ~/scripts; ./autostart_blocking.sh");
-	system("cd ~/.local/bin/dwm; ./dwm-autostart.sh &");
+	system("cd ~/.local/mbin/dwm; ./dwm-autostart.sh &");
 }
 
 void

@@ -128,7 +128,7 @@ static const char *browsercmd[]  = { "google-chrome-stable", NULL };
 static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
 
 /* scripts control */
-static const char *layoutmenu_cmd = "/home/kuring/.local/bin/dwm/dwm-layoutmenu.sh";
+static const char *layoutmenu_cmd = "/home/kuring/.local/mbin/dwm/dwm-layoutmenu.sh";
 
 #include "movestack.c"
 static Key keys[] = {

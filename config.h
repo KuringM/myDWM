@@ -180,7 +180,7 @@ static Key keys[] = {
 
 	/* start a application or a shell script */
 	{ MODKEY,                       XK_s,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       XK_r,      spawn,          SHCMD("dmenu_drun") },
+	{ MODKEY,                       XK_d,      spawn,          SHCMD("dmenu_drun") },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_c,      spawn,          {.v = browsercmd } },
 	{ 0,                            XK_Print,  spawn,          {.v = screenshotcmd } },

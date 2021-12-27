@@ -190,7 +190,7 @@ static Key keys[] = {
 	{ MODKEY,         XK_bracketleft,          spawn,          SHCMD("dwm-vol_down.sh") },
 	{ MODKEY,         XK_backslash,            spawn,          SHCMD("dwm-vol_toggle.sh") },
 	{ MODKEY,         XK_bracketright,         spawn,          SHCMD("dwm-vol_up.sh") },
-	{ MODKEY,                       XK_b,      spawn,          SHCMD("dwm-wp_change.sh") },
+	{ MODKEY,                       XK_b,      spawn,          SHCMD("wp_change.sh") },
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("setxmodmap-qwerty.sh") },
 	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("setxmodmap-colemak.sh") },
 	{ MODKEY|ShiftMask,     XK_BackSpace,      spawn,          SHCMD("sysact") },

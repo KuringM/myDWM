@@ -256,7 +256,7 @@ static Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button3,        layoutmenu,     {0} }, /* layoutmenu */
 	{ ClkWinTitle,          0,              Button1,        togglewin,      {0} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-	{ ClkStatusText,        0,              Button1,        spawn,          SHCMD("sb-notify -a") },
+	{ ClkStatusText,        0,              Button1,        spawn,          SHCMD("st -e sb-notify -a") },
 	{ ClkStatusText,        0,              Button2,        spawn,          SHCMD("sb-notify -c") },
 	{ ClkStatusText,        0,              Button3,        spawn,          SHCMD("sb-notify -b") },
 	{ ClkStatusText,        0,              Button4,        spawn,          SHCMD("vol_up.sh") },
